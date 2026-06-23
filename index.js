@@ -23,7 +23,7 @@ client.on('messageCreate', async (msg) => {
   if (!text) return;
 
   try {
-    const res = await fetch(N8N_WEBHOOK, {
+    await fetch(N8N_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -32,17 +32,8 @@ client.on('messageCreate', async (msg) => {
         channel_id: msg.channelId,
       }),
     });
-
-    let replyText = '✅ 已記錄';
-    try {
-      const data = await res.json();
-      if (data?.ai_reply) replyText = data.ai_reply;
-    } catch (_) {}
-
-    //await msg.reply(replyText);
   } catch (err) {
     console.error('Forward to n8n failed:', err);
-    await msg.reply('⚠️ 系統忙線，稍後再試');
   }
 });
 
