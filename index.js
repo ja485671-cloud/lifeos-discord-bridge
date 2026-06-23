@@ -39,7 +39,7 @@ client.on('messageCreate', async (msg) => {
       if (data?.ai_reply) replyText = data.ai_reply;
     } catch (_) {}
 
-    await msg.reply(replyText);
+    //await msg.reply(replyText);
   } catch (err) {
     console.error('Forward to n8n failed:', err);
     await msg.reply('⚠️ 系統忙線，稍後再試');
