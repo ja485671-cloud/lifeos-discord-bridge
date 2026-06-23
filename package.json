@@ -1,0 +1,8 @@
+{
+  "name": "lifeos-discord-bridge",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node index.js" },
+  "dependencies": { "discord.js": "^14.16.3" }
+}
